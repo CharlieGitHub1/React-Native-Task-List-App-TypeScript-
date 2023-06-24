@@ -19,7 +19,6 @@ const TaskCard = ({
   handleEdit,
 }: TaskCardProps) => {
   const [isEdit, setIsEdit] = useState(false);
-  const [deleteTask, setDeleteTask] = useState(false);
 
   const toggleEdit = () => {
     setIsEdit(!isEdit);
@@ -113,8 +112,6 @@ const styles = StyleSheet.create({
     // width: '100%',
   },
   checkBox: {
-    width: 20,
-    height: 20,
     marginRight: 10,
     color: '#3a3acb',
     borderWidth: 2,

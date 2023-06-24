@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, FlatList, StyleSheet } from 'react-native';
 import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard';
-import { LinearGradient } from 'expo-linear-gradient';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export interface TaskProps {
   id: string;
@@ -81,24 +78,19 @@ const TaskListScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={styles.taskListContainer}
-      >
-        <FlatList
-          data={tasks}
-          style={styles.taskList}
-          renderItem={({ item }) => (
-            <TaskCard
-              task={item}
-              toggleCheckCompleted={handleToggleComplete}
-              handleDeleteTask={handleDeleteTask}
-              handleEdit={handleEdit}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </ScrollView>
+      <FlatList
+        data={tasks}
+        style={styles.taskList}
+        renderItem={({ item }) => (
+          <TaskCard
+            task={item}
+            toggleCheckCompleted={handleToggleComplete}
+            handleDeleteTask={handleDeleteTask}
+            handleEdit={handleEdit}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
       <TaskForm onAddTask={handleAddTask} />
     </View>
   );
